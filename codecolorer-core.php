@@ -267,7 +267,10 @@ class CodeColorer
         }
 
         if ($options['line_numbers'] && !$options['inline']) {
-            $table = '<table cellspacing="0" cellpadding="0"><tbody><tr><td ';
+            $table = '<table cellspacing="0" cellpadding="0"><tbody>';
+            // Add language name
+            $table .= '<tr><td class="line-numbers"></td><td class="tools"><b>['.$options['lang'].']<b></td>';
+            $table .= '<tr><td ';
             if (is_feed()) {
                 $table .= 'style="' . CodeColorerOptions::feedLineNumbersStyle() . '"';
             } else {
